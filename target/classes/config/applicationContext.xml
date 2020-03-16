@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- new User() 한것과 동일하다 -->
+	<bean id="user" name="member" class="springcontainer.User"/>
+	
+	<!-- 생성자 호출 -->
+	<bean id="user2" class="springcontainer.User">
+		<!-- 생성자 매개변수 -->
+		<constructor-arg type="java.lang.String" value="짱구"/>
+	</bean>	
+	
+	<bean id="user3" class="springcontainer.User">
+		<!-- 생성자 매개변수가 여러개 있을 경우 index로 잡아준다 -->
+		<constructor-arg type="java.lang.Long" index="0" value="1"/>
+		<constructor-arg type="java.lang.String" index="1" value="짱구"/>
+	</bean>
+	
+	<bean id="user4" class="springcontainer.User">
+	<!-- setter를 이용한 객체 설정은 property를 이용 -->	
+	<!-- 객체내에 상응하는 setter가 만들어져있어야 한다 -->
+	<property name="no" value="4"/>
+	<property name="name" value="짱구"/>
+	</bean>
+	
+	<bean id="friend" class="springcontainer.Friend">
+		<!-- 생성자 호출 -->
+		<constructor-arg value="철수"/>
+	</bean>
+	
+	<bean id="user5" class="springcontainer.User">
+	<!-- setter 호출: property -->
+	<property name="no" value="5"/>
+	<property name="name" value="짱구"/>
+	<!-- 외부객체의 주입 ref -->
+	<property name="friend" ref="friend"/>
+	</bean>
+	
+	<!-- 집함객체 -->
+	<!-- List ->list Set->set, Map->map -->
+	<bean id="user6" class="springcontainer.User">
+	<!-- 생성자 호출 -->
+		<constructor-arg index="0" value="6"/>
+		<constructor-arg index="1" value="짱구"/>
+	
+	
+	<!-- 집합객체의 세팅 -->
+	<property name="friends">
+		<list>
+			<value>철수</value>
+			<value>유리</value>
+			<value>맹구</value>
+		</list>
+	</property>
+	</bean>
+</beans>

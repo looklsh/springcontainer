@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bitacademy</groupId>
+  <artifactId>springcontainer</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<!-- Maven Build에 사용된 컴파일러 정보 관리 플러그인 -->
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.8.0</version>
+  			<!-- 플러그인 설정 -->
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+  <dependencies>
+  	<!-- Spring Context -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-context</artifactId>
+  		<version>4.2.3.RELEASE</version>
+  	</dependency>
+  </dependencies>
+</project>
